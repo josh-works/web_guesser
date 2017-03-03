@@ -1,7 +1,7 @@
 require 'sinatra'
 
 get '/' do
-  "hello, world"
+  "the secret number is #{rand(0..100)}"
 end
 
 get '/datetime' do
