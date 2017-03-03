@@ -1,12 +1,12 @@
 require 'sinatra'
 require 'sinatra/reloader'
 
+number = rand(0..100)
 
-random_number = rand(0..100)
 get '/' do
-  "the secret number is #{random_number}"
+  erb :index, :locals => {:number => number}
 end
 
 get '/datetime' do
-  "the time is #{Time.now}"
+  "the TIME is #{Time.now}"
 end
