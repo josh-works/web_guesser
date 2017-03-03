@@ -17,9 +17,10 @@ class WebGuesser
     }
   end
 
-
   def build_response(guess)
+    return response[:way_too_high] if (guess - number ) > 10
     return response[:too_high] if guess > number
+    return response[:way_too_low] if (guess - number ) < -10
     return response[:too_low] if guess < number
     return response[:correct] if guess == number
   end
