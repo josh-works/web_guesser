@@ -4,5 +4,17 @@
     <p>
       the secret number is <%= number %>
     </p>
+    <p>
+      <% response[:too_high] %>
+    </p>
+    <p>
+      your guess was <%= guess %> and it is <%= response[:too_high].upcase %>
+    </p>
   </body>
 </html>
+
+<form>
+  <input type='text' name='guess' />
+  <input type='submit' value='Guess, bitch!' />
+  <input type='submit' value='click me, asshole' />
+</form>
