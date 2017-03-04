@@ -13,14 +13,14 @@ class WebGuesser
       way_too_high: "way too high",
       too_low: "too low",
       way_too_low: "way too low",
-      correct: "correct!"
+      correct: "correct! the number is #{number}"
     }
   end
 
   def build_response(guess)
-    return response[:way_too_high] if (guess - number ) > 10
+    return response[:way_too_high] if (guess - number ) > 5
     return response[:too_high] if guess > number
-    return response[:way_too_low] if (guess - number ) < -10
+    return response[:way_too_low] if (guess - number ) < -5
     return response[:too_low] if guess < number
     return response[:correct] if guess == number
   end
