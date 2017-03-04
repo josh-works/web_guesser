@@ -29,12 +29,9 @@ end
 web_guesser = WebGuesser.new
 
 get '/' do
-  # throw params["guess"]
   guess = params['guess'].to_i
   erb :index, :locals => {
-        :number => web_guesser.number,
-        :message => web_guesser.build_response(guess),
-        :guess => guess
+        :message => web_guesser.build_response(guess)
       }
 end
 

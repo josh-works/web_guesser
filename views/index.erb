@@ -1,13 +1,21 @@
 <html>
-  <head></head>
+  <head>
+    <style>
+    p, h1, form {
+      text-align: center;
+    }
+    </style>
+  </head>
   <body bgcolor="#97c475">
+    <h1>What's your guess?</h1>
+    <form>
+      <input type='text' name='guess' />
+      <input type='submit' value="What's your guess, human?" />
+    </form>
+
     <p>
-      your guess of <%= guess %> is <%= message %>
+      your guess is <%= message %>
     </p>
+    
   </body>
 </html>
-
-<form>
-  <input type='text' name='guess' />
-  <input type='submit' value="What's your guess, human?" />
-</form>
