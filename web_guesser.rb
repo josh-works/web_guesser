@@ -20,11 +20,11 @@ class WebGuesser
   }
 
   BGCOLORS = {
-  way_too_high: "#DC143C",
-  too_high: "#CD5C5C",
-  way_too_low: "#00008B",
-  too_low: "#00FFFF",
-  correct: "#97c475",
+  way_too_high: "#ff0e04",
+  too_high: "#ff9100",
+  way_too_low: "#04bffd",
+  too_low: "#01fefd",
+  correct: "#03b801",
   }
 
 
@@ -44,6 +44,13 @@ class WebGuesser
     return BGCOLORS[:too_low] if guess < number
     return BGCOLORS[:correct] if guess == number
   end
+
+  def activate_cheat(cheat)
+    if cheat == "true"
+      return "cheat mode enabled: the correct answer is #{@number}"
+    end
+  end
+
 end
 
 
@@ -52,11 +59,14 @@ web_guesser = WebGuesser.new
 
 get '/' do
   guess = params['guess'].to_i
+  cheat_code = params['cheat_mode']
   erb :index, :locals => {
         :message => web_guesser.build_response(guess),
-        :background => web_guesser.background_color(guess)
+        :background => web_guesser.background_color(guess),
+        :cheat_code => web_guesser.activate_cheat(cheat_code)
       }
 end
+
 
 get '/datetime' do
   "the TIME is #{Time.now}"
